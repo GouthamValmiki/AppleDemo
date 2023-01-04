@@ -85,7 +85,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if (validateEmailId == true || isValidatePass == true) {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "LastViewController")
             self.present(nextVC!, animated: true)
-            print("All fields are correct")
+            print("Success")
             resetform()
         }
     }
