@@ -24,6 +24,21 @@ class Validation {
         let isvalidatePass = validatePassord.evaluate(with: trimmedString)
         return isvalidatePass
     }
+    public func validateName(name: String) ->Bool {
+        
+        let nameRegex = "\\A\\w{6,30}\\z"
+        let trimmedString = name.trimmingCharacters(in: .whitespaces)
+        let validateName = NSPredicate(format: "SELF MATCHES %@", nameRegex)
+        let isValidateName = validateName.evaluate(with: trimmedString)
+        return isValidateName
+    }
+    public func validaPhoneNumber(phoneNumber: String) -> Bool {
+        let phoneNumberRegex = "^[0-9+]{0,1}+[0-9]{5,16}$"
+        let trimmedString = phoneNumber.trimmingCharacters(in: .whitespaces)
+        let validatePhone = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegex)
+        let isValidPhone = validatePhone.evaluate(with: trimmedString)
+        return isValidPhone
+    }
 
 }
 

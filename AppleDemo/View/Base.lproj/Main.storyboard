@@ -448,6 +448,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="QIp-BW-Z57"/>
+                    <connections>
+                        <outlet property="emailfld" destination="ORK-Fw-b9f" id="iKY-CS-d1r"/>
+                        <outlet property="namefld" destination="dTB-dA-wHp" id="4oq-Jp-PUP"/>
+                        <outlet property="passfld" destination="b0L-YI-YxJ" id="r2d-9m-cUi"/>
+                        <outlet property="phone" destination="SzP-lK-BCV" id="mgb-Xw-UIK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZCz-yj-sfp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
