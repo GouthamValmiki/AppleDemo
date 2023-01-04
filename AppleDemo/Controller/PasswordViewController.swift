@@ -7,13 +7,13 @@
 
 import UIKit
 
-class ThirdVC: UIViewController {
+class PasswordViewController: UIViewController {
     
     @IBOutlet var vw: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setGradientBackground()
+//        setGradientBackground()
     }
     func setGradientBackground() {
         
@@ -29,5 +29,9 @@ class ThirdVC: UIViewController {
         self.vw.layer.insertSublayer(gradientLayer, at: 0)
     }
     
+    @IBAction func save(_ sender: UIButton) {
+    
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
 

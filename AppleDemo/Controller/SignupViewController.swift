@@ -7,13 +7,14 @@
 
 import UIKit
 
-class SecondVC: UIViewController {
+class SignupViewController: UIViewController {
     
     @IBOutlet weak var vw: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setGradientBackground()
+               
+
+//        setGradientBackground()
     }
     func setGradientBackground() {
         
@@ -31,4 +32,9 @@ class SecondVC: UIViewController {
         
     }
     
+    @IBAction func create(_ sender: UIButton) {
+//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ViewController")
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
