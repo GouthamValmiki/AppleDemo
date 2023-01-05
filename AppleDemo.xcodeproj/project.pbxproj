@@ -16,6 +16,7 @@
 		351159382963F0C90079AD4F /* Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351159372963F0C90079AD4F /* Logic.swift */; };
 		351752E5295B0022000672A5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351752E4295B0022000672A5 /* SignupViewController.swift */; };
 		351752E7295B0032000672A5 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351752E6295B0032000672A5 /* PasswordViewController.swift */; };
+		35B6FA992965950000121C7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6FA982965950000121C7A /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		351159372963F0C90079AD4F /* Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logic.swift; sourceTree = "<group>"; };
 		351752E4295B0022000672A5 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		351752E6295B0032000672A5 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		35B6FA982965950000121C7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				351159372963F0C90079AD4F /* Logic.swift */,
+				35B6FA982965950000121C7A /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				3510995A2952D73A00D6A38F /* LoginViewController.swift in Sources */,
 				351099562952D73A00D6A38F /* AppDelegate.swift in Sources */,
 				351752E5295B0022000672A5 /* SignupViewController.swift in Sources */,
+				35B6FA992965950000121C7A /* NetworkManager.swift in Sources */,
 				351099582952D73A00D6A38F /* SceneDelegate.swift in Sources */,
 				351159382963F0C90079AD4F /* Logic.swift in Sources */,
 				351752E7295B0032000672A5 /* PasswordViewController.swift in Sources */,

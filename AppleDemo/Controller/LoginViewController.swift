@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var validation = Validation()
+    var arrdata = [Instruction]()
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -21,6 +22,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         password.delegate = self
         password.isSecureTextEntry = true
         resetform()
+        call()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -89,8 +91,30 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             resetform()
         }
     }
+    func call(){
+        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let session = URLSession.shared
+        session.dataTask(with: request) { (data, response, error) in
+            
+            do {
+                if let data = data,let json = try? JSONSerialization.jsonObject(with: data, options: []) {
+                    print(json)
+//                     if error == nil{
+//                     self.arrdata = try JSONDecoder().decode([Instruction].self, from: data!)
+                }
+            }catch{
+                print("Error")
+            }
+            
+            
+        }.resume()
+    }
+}
     
     class LastViewController: UIViewController {
         
     }
-}
