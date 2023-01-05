@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var validation = Validation()
-    var arrdata = [Instruction]()
+    var DataManager = [Data]()
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -22,7 +22,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         password.delegate = self
         password.isSecureTextEntry = true
         resetform()
-        call()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,7 +76,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
         let validateEmailId = self.validation.validateEmailId(emailID: email)
         if (validateEmailId == false) {
-            print("Incorrect Name")
+            print("Ivalid Email")
             return
         }
         let isValidatePass = self.validation.validatePassword(password: password)
@@ -87,34 +87,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         if (validateEmailId == true || isValidatePass == true) {
             let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "LastViewController")
             self.present(nextVC!, animated: true)
-            print("Success")
+            print("Login Success")
             resetform()
+            ProjectManager()
         }
-    }
-    func call(){
-        let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
         
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            
-            do {
-                if let data = data,let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                    print(json)
-//                     if error == nil{
-//                     self.arrdata = try JSONDecoder().decode([Instruction].self, from: data!)
-                }
-            }catch{
-                print("Error")
-            }
-            
-            
-        }.resume()
     }
-}
     
     class LastViewController: UIViewController {
         
     }
+}

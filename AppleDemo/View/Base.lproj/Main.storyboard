@@ -206,7 +206,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="BTn-sL-Tk2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uye-14-Odo">
                                                 <rect key="frame" x="10" y="363" width="373" height="44"/>
@@ -215,7 +215,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="6aH-Eh-RqL"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ijN-Sz-qog">
                                                 <rect key="frame" x="10" y="422" width="373" height="44"/>
@@ -224,7 +224,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="gDj-b8-hzo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6195700" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-r4-bpU">
                                                 <rect key="frame" x="75" y="62" width="243" height="196"/>
@@ -330,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHs-lT-QSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1953" y="804"/>
+            <point key="canvasLocation" x="1951.9083969465648" y="803.52112676056345"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="sDV-EL-7Ws">
@@ -374,7 +374,7 @@
                                                     <constraint firstAttribute="height" constant="46" id="O6G-2p-Fhc"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SzP-lK-BCV">
                                                 <rect key="frame" x="8" y="551" width="377" height="46"/>
