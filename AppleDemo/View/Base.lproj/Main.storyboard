@@ -28,6 +28,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hHd-al-Dqp">
                                                 <rect key="frame" x="11" y="196" width="370" height="47"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="47" id="ajm-iU-cvM"/>
                                                 </constraints>
@@ -37,6 +38,7 @@
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C5a-eD-2Y5">
                                                 <rect key="frame" x="11" y="263" width="370" height="47"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="47" id="hgb-8T-qAK"/>
                                                 </constraints>
@@ -58,7 +60,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WcH-Kq-uo2"/>
+                                                    <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHr-Pl-4Q4"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxX-e5-0FN">
@@ -170,6 +172,7 @@
                         <outlet property="email" destination="hHd-al-Dqp" id="H3A-5U-rw5"/>
                         <outlet property="password" destination="C5a-eD-2Y5" id="v7A-7r-G6Q"/>
                         <outlet property="vw" destination="toR-Ag-kyv" id="s1n-Qh-0PX"/>
+                        <segue destination="Qfy-qx-chs" kind="show" identifier="FinalViewController" id="XDp-Z5-lJH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -304,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="2889" y="804"/>
         </scene>
-        <!--Last View Controller-->
+        <!--Final View Controller-->
         <scene sceneID="j4G-ze-wbX">
             <objects>
-                <viewController storyboardIdentifier="LastViewController" id="Qfy-qx-chs" customClass="LastViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinalViewController" id="Qfy-qx-chs" customClass="FinalViewController" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2cB-O3-SHx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

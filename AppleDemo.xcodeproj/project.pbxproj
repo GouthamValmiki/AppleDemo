@@ -18,6 +18,7 @@
 		351752E7295B0032000672A5 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351752E6295B0032000672A5 /* PasswordViewController.swift */; };
 		356C5E932966B0EE009174EA /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C5E922966B0EE009174EA /* Data.swift */; };
 		35B6FA992965950000121C7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6FA982965950000121C7A /* NetworkManager.swift */; };
+		35D07DC82967F734000A68B4 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D07DC72967F734000A68B4 /* FinalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		351752E6295B0032000672A5 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		356C5E922966B0EE009174EA /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		35B6FA982965950000121C7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		35D07DC72967F734000A68B4 /* FinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				351099592952D73A00D6A38F /* LoginViewController.swift */,
 				351752E4295B0022000672A5 /* SignupViewController.swift */,
 				351752E6295B0032000672A5 /* PasswordViewController.swift */,
+				35D07DC72967F734000A68B4 /* FinalViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3510995A2952D73A00D6A38F /* LoginViewController.swift in Sources */,
+				35D07DC82967F734000A68B4 /* FinalViewController.swift in Sources */,
 				351099562952D73A00D6A38F /* AppDelegate.swift in Sources */,
 				351752E5295B0022000672A5 /* SignupViewController.swift in Sources */,
 				35B6FA992965950000121C7A /* NetworkManager.swift in Sources */,

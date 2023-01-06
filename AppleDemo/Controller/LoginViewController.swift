@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var validation = Validation()
-    var DataManager = [Data]()
+//    var DataManager = [Data]()
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -71,30 +71,53 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func submitAction(_ sender: Any) {
         
-        guard let email = email.text, let password = password.text else {
+        if email.text!.isEmpty && password.text!.isEmpty {
+            //Alert saying "Please enter credentials"
+            showAlert(title: "title", message: "message")
             return
-        }
-        let validateEmailId = self.validation.validateEmailId(emailID: email)
-        if (validateEmailId == false) {
-            print("Ivalid Email")
-            return
-        }
-        let isValidatePass = self.validation.validatePassword(password: password)
-        if (isValidatePass == false) {
-            print("Incorrect Pass")
-            return
-        }
-        if (validateEmailId == true || isValidatePass == true) {
-            let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "LastViewController")
-            self.present(nextVC!, animated: true)
-            print("Login Success")
-            resetform()
-            ProjectManager()
         }
         
+        let validateEmailId = self.validation.validateEmailId(emailID: email.text!)
+        let isValidatePass = self.validation.validatePassword(password: password.text!)
+        
+        if (validateEmailId == false) {
+            let my = UIAlertController(title: "Alert", message: "Please enter email address", preferredStyle: .alert)
+            let act = UIAlertAction(title: "OK", style: .default)
+            let Cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            my.addAction(act)
+            my.addAction(Cancel)
+            self.present(my, animated: true)
+        }else{
+            if (isValidatePass == false){
+                let my = UIAlertController(title: "Alert", message: "Please enter your password", preferredStyle: .alert)
+                let act = UIAlertAction(title: "OK", style: .default)
+                let Cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+                my.addAction(Cancel)
+                my.addAction(act)
+                self.present(my, animated: true)
+            }
+            if (validateEmailId && isValidatePass) {
+                performSegue(withIdentifier: "FinalViewController", sender: self)
+                print("Login Success")
+                resetform()
+                getUserData()
+            }else{
+                print("Login Failed")
+            }
+            
+        }
     }
     
-    class LastViewController: UIViewController {
+    
+// MARK: Utility Methods
+    fileprivate func showAlert(title: String, message: String) {
         
+        let myAlert = UIAlertController(title: "Alert", message: "Please Enter Credentials", preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (_) in})
+        let actionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        myAlert.addAction(actionOK)
+        myAlert.addAction(actionCancel)
+        self.present(myAlert, animated: true, completion: nil)
     }
+    
 }
