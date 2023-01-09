@@ -41,6 +41,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             email.layer.shadowOpacity = 1
             email.layer.shadowRadius = 1
             email.layer.shadowOffset = CGSize(width: 3, height: 3)
+            
         }else{
             email.layer.shadowOpacity = 0
             email.layer.shadowRadius = 0
@@ -73,31 +74,20 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         if email.text!.isEmpty && password.text!.isEmpty {
             //Alert saying "Please enter credentials"
-            showAlert(title: "title", message: "message")
+            showAlert(title: "Alert", message: "Please enter credentials")
             return
         }
-        
         let validateEmailId = self.validation.validateEmailId(emailID: email.text!)
         let isValidatePass = self.validation.validatePassword(password: password.text!)
         
         if (validateEmailId == false) {
-            let my = UIAlertController(title: "Alert", message: "Please enter email address", preferredStyle: .alert)
-            let act = UIAlertAction(title: "OK", style: .default)
-            let Cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-            my.addAction(act)
-            my.addAction(Cancel)
-            self.present(my, animated: true)
+                showAlert(title: "Alert", message: "Please enter valid email address")
         }else{
             if (isValidatePass == false){
-                let my = UIAlertController(title: "Alert", message: "Please enter your password", preferredStyle: .alert)
-                let act = UIAlertAction(title: "OK", style: .default)
-                let Cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
-                my.addAction(Cancel)
-                my.addAction(act)
-                self.present(my, animated: true)
+                showAlert(title: "Alert", message: "Incorrect Password")
             }
             if (validateEmailId && isValidatePass) {
-                performSegue(withIdentifier: "FinalViewController", sender: self)
+                performSegue(withIdentifier: "HomeViewController", sender: self)
                 print("Login Success")
                 resetform()
                 getUserData()
@@ -112,7 +102,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 // MARK: Utility Methods
     fileprivate func showAlert(title: String, message: String) {
         
-        let myAlert = UIAlertController(title: "Alert", message: "Please Enter Credentials", preferredStyle: .alert)
+        let myAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (_) in})
         let actionCancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         myAlert.addAction(actionOK)

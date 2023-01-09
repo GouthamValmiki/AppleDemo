@@ -17,7 +17,7 @@ class Validation {
         return isValidateEmail
     }
     public func validatePassword(password: String) -> Bool {
-        //Minimum 8 characters at least 1 Alphabet and 1 Number:
+
         let passRegEx = "1234"
         let trimmedString = password.trimmingCharacters(in: .whitespaces)
         let validatePassord = NSPredicate(format:"SELF MATCHES %@", passRegEx)
@@ -45,3 +45,5 @@ class Validation {
 //email = [A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}
 //password = ^[a-zA-Z_0-9\\-_,;.:#+*?=!§$%&/()@]+$
 //let password = NSPredicate(format: "SELF MATCHES %@ ", "^(?=.*[a-z])(?=.*[$@$#!%*?&])(?=.*[A-Z]).{6,}$")
+
+//^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$
