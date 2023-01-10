@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var validation = Validation()
-//    var DataManager = [Data]()
+    var DataManager = [Employee]()
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         password.text = ""
     }
     
-    @IBAction func submitAction(_ sender: Any) {
+    @IBAction func loginAction(_ sender: Any) {
         
         if email.text!.isEmpty && password.text!.isEmpty {
             //Alert saying "Please enter credentials"
@@ -80,26 +80,22 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         let validateEmailId = self.validation.validateEmailId(emailID: email.text!)
         let isValidatePass = self.validation.validatePassword(password: password.text!)
         
-        if (validateEmailId == false) {
-                showAlert(title: "Alert", message: "Please enter valid email address")
-        }else{
-            if (isValidatePass == false){
-                showAlert(title: "Alert", message: "Incorrect Password")
-            }
-            if (validateEmailId && isValidatePass) {
+        if !validateEmailId {
+            showAlert(title: "Alert", message: "Please enter valid email address")
+        }else if !isValidatePass {
+            showAlert(title: "Alert", message: "Incorrect Password")
+        }
+        if (validateEmailId && isValidatePass) {
+            let employeeArray = getUserData()
+            if  employeeArray.isEmpty {
                 performSegue(withIdentifier: "HomeViewController", sender: self)
                 print("Login Success")
-                resetform()
-                getUserData()
-            }else{
-                print("Login Failed")
             }
             
         }
     }
     
-    
-// MARK: Utility Methods
+    // MARK: Utility Methods
     fileprivate func showAlert(title: String, message: String) {
         
         let myAlert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -109,5 +105,4 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         myAlert.addAction(actionCancel)
         self.present(myAlert, animated: true, completion: nil)
     }
-    
 }

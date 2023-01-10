@@ -60,7 +60,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="submitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHr-Pl-4Q4"/>
+                                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yeV-No-lma"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QxX-e5-0FN">
@@ -229,7 +229,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="6195700" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-r4-bpU">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="HVX-r4-bpU">
                                                 <rect key="frame" x="75" y="62" width="243" height="196"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="196" id="Uov-hb-eFB"/>
@@ -307,7 +307,7 @@
             </objects>
             <point key="canvasLocation" x="2952" y="316"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Food-->
         <scene sceneID="j4G-ze-wbX">
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" id="Qfy-qx-chs" customClass="HomeViewController" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -329,13 +329,13 @@
                             <constraint firstItem="90Z-TB-W00" firstAttribute="centerX" secondItem="2cB-O3-SHx" secondAttribute="centerX" id="U5V-zJ-CR7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="RVL-BE-cTK"/>
+                    <tabBarItem key="tabBarItem" title="Food" image="fork.knife.circle" catalog="system" id="RVL-BE-cTK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHs-lT-QSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="930.53435114503816" y="1560.5633802816901"/>
         </scene>
-        <!--History View Controller-->
+        <!--orders-->
         <scene sceneID="aoL-yM-KEi">
             <objects>
                 <viewController id="AVn-T2-nVD" customClass="HistoryViewController" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -345,27 +345,54 @@
                         <viewLayoutGuide key="safeArea" id="NZu-V1-g97"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="history" id="gQA-RW-0nt"/>
+                    <tabBarItem key="tabBarItem" title="orders" image="burn" catalog="system" id="gQA-RW-0nt">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTf-f4-HFM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1953.4351145038167" y="1560.5633802816901"/>
         </scene>
-        <!--Download View Controller-->
+        <!--Account-->
         <scene sceneID="9Ok-Wu-yBz">
             <objects>
-                <viewController id="R1v-WM-z7o" customClass="DownloadViewController" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DownloadViewController" id="R1v-WM-z7o" customClass="DownloadViewController" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YIy-Y8-vlA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="TI8-Eo-U3C"/>
                         <color key="backgroundColor" red="0.46950931169999999" green="0.54114946389999996" blue="0.46049090599999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="MFh-5i-Du5"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="MFh-5i-Du5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yr-FV-yby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2878.6259541984732" y="1560.5633802816901"/>
+        </scene>
+        <!--Popup View-->
+        <scene sceneID="tGs-69-Kup">
+            <objects>
+                <viewController storyboardIdentifier="PopupView" id="NC7-Yn-Pwl" customClass="PopupView" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iN8-aQ-8XG">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucT-2H-ePR">
+                                <rect key="frame" x="79" y="140" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iPp-sJ-58e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <size key="freeformSize" width="200" height="300"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zpE-If-8RP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4087" y="960"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="sDV-EL-7Ws">
@@ -537,14 +564,20 @@
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="360_F_374737839_VsxlmnN7soqOOOFFzy5kfE9H6PFMCkPX" width="360" height="360"/>
-        <image name="6195700" width="512" height="512"/>
+        <image name="Image" width="512" height="512"/>
+        <image name="burn" catalog="system" width="128" height="123"/>
+        <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
         <image name="illustration-people-login" width="1000" height="667"/>
         <image name="meals-f674818dfb3bad5b657d46c4e7bd825e0879c5a7cc33aca008a3d3b94a8cb4a8" width="475" height="304"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

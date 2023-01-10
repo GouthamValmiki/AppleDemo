@@ -7,16 +7,18 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,UIPopoverPresentationControllerDelegate {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.tabBarController?.navigationItem.hidesBackButton = true
-        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .done, target: self, action: #selector (getter: next))
         self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .blue
     }
     
@@ -24,6 +26,17 @@ class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationItem.rightBarButtonItem?.isHidden = true
     }
-
+    @objc func next(){
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PopupView")
+        vc.modalPresentationStyle = UIModalPresentationStyle.popover
+        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+        popover.backgroundColor = .blue
+        popover.delegate = self
+        present(vc, animated: true, completion:nil)
+        
+    }
+    
 
 }
+

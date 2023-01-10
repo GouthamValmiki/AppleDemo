@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Data: Codable {
+class Employee: Codable {
     
     let userId: Int
     let id : Int

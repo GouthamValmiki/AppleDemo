@@ -11,10 +11,6 @@ class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
- configureItem()
-        // Do any additional setup after loading the view.
+        
     }
-        func configureItem(){
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: nil)
-        }
 }
