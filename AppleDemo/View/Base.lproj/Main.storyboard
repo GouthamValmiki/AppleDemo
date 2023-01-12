@@ -374,11 +374,11 @@
             <objects>
                 <viewController storyboardIdentifier="PopupView" id="NC7-Yn-Pwl" customClass="PopupView" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iN8-aQ-8XG">
-                        <rect key="frame" x="0.0" y="0.0" width="200" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="150" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucT-2H-ePR">
-                                <rect key="frame" x="79" y="140" width="42" height="21"/>
+                                <rect key="frame" x="54" y="140" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -388,11 +388,11 @@
                         <viewLayoutGuide key="safeArea" id="iPp-sJ-58e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <size key="freeformSize" width="200" height="300"/>
+                    <size key="freeformSize" width="150" height="300"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zpE-If-8RP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4087" y="960"/>
+            <point key="canvasLocation" x="2803.0534351145038" y="900.70422535211276"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="sDV-EL-7Ws">
