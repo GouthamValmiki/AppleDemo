@@ -321,6 +321,21 @@
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghO-ab-sUo">
+                                <rect key="frame" x="316" y="61" width="48" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.54023468490000004" green="0.47625541690000001" blue="0.33330720660000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="ellipsis" catalog="system"/>
+                                <connections>
+                                    <action selector="PopUpClicked:" destination="Qfy-qx-chs" eventType="touchUpOutside" id="D7h-k7-GLy"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0hK-dr-9LX">
+                                <rect key="frame" x="262" y="104" width="115" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yE7-n7-ShT"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
@@ -330,10 +345,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Food" image="fork.knife.circle" catalog="system" id="RVL-BE-cTK"/>
+                    <connections>
+                        <outlet property="vw" destination="0hK-dr-9LX" id="IHK-vO-aWl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHs-lT-QSz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="930.53435114503816" y="1560.5633802816901"/>
+            <point key="canvasLocation" x="725.95419847328242" y="1529.5774647887324"/>
         </scene>
         <!--orders-->
         <scene sceneID="aoL-yM-KEi">
@@ -368,31 +386,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yr-FV-yby" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2878.6259541984732" y="1560.5633802816901"/>
-        </scene>
-        <!--Popup View-->
-        <scene sceneID="tGs-69-Kup">
-            <objects>
-                <viewController storyboardIdentifier="PopupView" id="NC7-Yn-Pwl" customClass="PopupView" customModule="AppleDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iN8-aQ-8XG">
-                        <rect key="frame" x="0.0" y="0.0" width="150" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucT-2H-ePR">
-                                <rect key="frame" x="54" y="140" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="iPp-sJ-58e"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <size key="freeformSize" width="150" height="300"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zpE-If-8RP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2803.0534351145038" y="900.70422535211276"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="sDV-EL-7Ws">
@@ -566,6 +559,7 @@
         <image name="360_F_374737839_VsxlmnN7soqOOOFFzy5kfE9H6PFMCkPX" width="360" height="360"/>
         <image name="Image" width="512" height="512"/>
         <image name="burn" catalog="system" width="128" height="123"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="fork.knife.circle" catalog="system" width="128" height="123"/>
         <image name="illustration-people-login" width="1000" height="667"/>
         <image name="meals-f674818dfb3bad5b657d46c4e7bd825e0879c5a7cc33aca008a3d3b94a8cb4a8" width="475" height="304"/>
@@ -576,8 +570,8 @@
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

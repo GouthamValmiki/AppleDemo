@@ -9,7 +9,7 @@ import Foundation
 
 
 func getUserData() -> [Employee]  {
-    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
+    let url = URL(string: "https://jsonplaceholder.typicode.com/todos")!
 
     var arrOfEmployees: [Employee] = []
 
@@ -20,50 +20,52 @@ func getUserData() -> [Employee]  {
     session.dataTask(with: request) { (data, response, error) in
 
         do {
-            if let data = data,let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                print(json)
+            
+            let decoder = JSONDecoder()
+            let employer = employeData.data(using: .utf8)!
+            let employer1 = try decoder.decode(Employee.self, from: employer)
+            print(employer1.title)
+            
+            arrOfEmployees[1].title = employer1.title
+            
+            print(arrOfEmployees)
 
-            }
-            if error == nil{
-
-                // let user = try JSONDecoder().decode([Employee].self, from: data!)
-                //    print(user)
-
-            }
-        }catch{
+//            for i in arrOfEmployees {
+//                for (key, value) in employer1 {
+//                    switch key {
+//                    case "Title":
+//                        break
+//                    case "Id":
+//                        break
+//                    default:
+//                        break // Ignore unknown keys
+//                    }
+//                }
+//            }
+            
+//            for arr in arrOfEmployees {
+//                arr.id = employer1.id
+//                arr.title = employer1.title
+//                arr.userId = employer1.userId
+//                arr.completed = employer1.completed
+//                print(arr.title)
+//            }
+            
+            }catch{
             print(error)
         }
-
+        
     }.resume()
 
     return arrOfEmployees
 }
 
-struct ArrayModel: Codable {
-    var userid = 2
-    var id = 2
-    var title = ""
-    var completed = ""
+let employeData = """
+{
+"userId": 1,
+"id": 2,
+"title": "Something that never change",
+"completed": false
 }
+"""
 
-//if let _address = try? values.decode([Address].self, forKey: .address) {
-//    address = _address
-//} else {
-//    address = []
-//}
-//
-//func fetchCategoryInfo(completion: @escaping ([CategoryInfo]?) -> Void) {
-//    let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-//    let task = URLSession.shared.dataTask(with: url) {
-//        (data, response, error) in
-//        let jsonDecoder = JSONDecoder()
-//        if let data = data,
-//            let categories = try? jsonDecoder.decode([CategoryInfo].self, from: data) {
-//                completion(categories)
-//            } else {
-//                print("Nothing reutrned or Not decoded")
-//                completion(nil)
-//            }
-//    }
-//    task.resume()
-//}

@@ -10,7 +10,7 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var validation = Validation()
-    var DataManager = [Employee]()
+//    var DataManager = [Employee]()
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -87,9 +87,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
         if (validateEmailId && isValidatePass) {
             let employeeArray = getUserData()
-            if  employeeArray.isEmpty {
+            if  !employeeArray.isEmpty {
                 performSegue(withIdentifier: "HomeViewController", sender: self)
                 print("Login Success")
+            }else{
+             print("Error")
             }
             
         }
