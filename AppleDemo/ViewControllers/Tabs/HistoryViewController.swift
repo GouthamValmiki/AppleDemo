@@ -9,9 +9,34 @@ import UIKit
 
 class HistoryViewController: UIViewController {
 
+    var image = ["Book","food","Snacks"]
+    var arr = ["Books","food","Snacks","Cool Drinks","Milk Shakes","Fruits","Popcorn"]
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+}
+extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        image.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        cell.img.image = UIImage(named: image[indexPath.row])
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        arr.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TblvwCell
+        cell.lbl.text = arr[indexPath.row]
+        return cell
     }
 }
 
+class TblvwCell: UITableViewCell {
+    @IBOutlet weak var lbl: UILabel!
+}
+
+ 

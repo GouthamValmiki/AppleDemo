@@ -17,8 +17,11 @@
 		351752E5295B0022000672A5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351752E4295B0022000672A5 /* SignupViewController.swift */; };
 		351752E7295B0032000672A5 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351752E6295B0032000672A5 /* PasswordViewController.swift */; };
 		356C5E932966B0EE009174EA /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356C5E922966B0EE009174EA /* Employee.swift */; };
+		358807B429791266008589D5 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358807B329791266008589D5 /* TableViewCell.swift */; };
+		358807B629791BC8008589D5 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358807B529791BC8008589D5 /* AccountCell.swift */; };
+		358807B829791F4D008589D5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358807B729791F4D008589D5 /* CollectionViewCell.swift */; };
+		358B3721297957AA00C1CCAA /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358B3720297957A900C1CCAA /* Department.swift */; };
 		35B6FA992965950000121C7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6FA982965950000121C7A /* NetworkManager.swift */; };
-		35D057CD296D743600F173FA /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D057CC296D743600F173FA /* PopupView.swift */; };
 		35D07DC82967F734000A68B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D07DC72967F734000A68B4 /* HomeViewController.swift */; };
 		35FA1081296BEE8900DC8416 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA1080296BEE8900DC8416 /* HistoryViewController.swift */; };
 		35FA1083296BEE9D00DC8416 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA1082296BEE9D00DC8416 /* DownloadViewController.swift */; };
@@ -37,8 +40,11 @@
 		351752E4295B0022000672A5 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		351752E6295B0032000672A5 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
 		356C5E922966B0EE009174EA /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		358807B329791266008589D5 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		358807B529791BC8008589D5 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		358807B729791F4D008589D5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		358B3720297957A900C1CCAA /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		35B6FA982965950000121C7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		35D057CC296D743600F173FA /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		35D07DC72967F734000A68B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		35FA1080296BEE8900DC8416 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		35FA1082296BEE9D00DC8416 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +98,7 @@
 				351159372963F0C90079AD4F /* Logic.swift */,
 				35B6FA982965950000121C7A /* NetworkManager.swift */,
 				356C5E922966B0EE009174EA /* Employee.swift */,
+				358B3720297957A900C1CCAA /* Department.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -119,9 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				35D07DC72967F734000A68B4 /* HomeViewController.swift */,
+				358807B329791266008589D5 /* TableViewCell.swift */,
 				35FA1080296BEE8900DC8416 /* HistoryViewController.swift */,
+				358807B729791F4D008589D5 /* CollectionViewCell.swift */,
 				35FA1082296BEE9D00DC8416 /* DownloadViewController.swift */,
-				35D057CC296D743600F173FA /* PopupView.swift */,
+				358807B529791BC8008589D5 /* AccountCell.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -197,16 +206,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358807B429791266008589D5 /* TableViewCell.swift in Sources */,
 				3510995A2952D73A00D6A38F /* LoginViewController.swift in Sources */,
+				358B3721297957AA00C1CCAA /* Department.swift in Sources */,
 				35D07DC82967F734000A68B4 /* HomeViewController.swift in Sources */,
 				351099562952D73A00D6A38F /* AppDelegate.swift in Sources */,
 				35FA1081296BEE8900DC8416 /* HistoryViewController.swift in Sources */,
+				358807B829791F4D008589D5 /* CollectionViewCell.swift in Sources */,
+				358807B629791BC8008589D5 /* AccountCell.swift in Sources */,
 				351752E5295B0022000672A5 /* SignupViewController.swift in Sources */,
 				35B6FA992965950000121C7A /* NetworkManager.swift in Sources */,
 				351099582952D73A00D6A38F /* SceneDelegate.swift in Sources */,
 				35FA1083296BEE9D00DC8416 /* DownloadViewController.swift in Sources */,
 				351159382963F0C90079AD4F /* Logic.swift in Sources */,
-				35D057CD296D743600F173FA /* PopupView.swift in Sources */,
 				351752E7295B0032000672A5 /* PasswordViewController.swift in Sources */,
 				356C5E932966B0EE009174EA /* Employee.swift in Sources */,
 			);

@@ -7,25 +7,38 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UIPopoverPresentationControllerDelegate {
+class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
+    
+    var employ = ["Breakfast","Lunch","Dinner","Snacks","Diet","Drinks"]
     
     @IBOutlet weak var vw: UIView!
     
+    @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        vw.isHidden = true
+       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.tabBarController?.navigationItem.hidesBackButton = true
-        //        self.tabBarController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .done, target: self, action: #selector (getter: next))
-        //        self.tabBarController?.navigationItem.rightBarButtonItem?.tintColor = .darkGray
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationItem.rightBarButtonItem?.isHidden = true
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        employ.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        cell.lbl.text = employ[indexPath.row]
+        cell.img.image = UIImage(named: employ[indexPath.row])
+        cell.backgroundColor = .clear
+        return cell
+    }
+
     //    @objc func next(){
     ////        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     ////        let vc = storyboard.instantiateViewController(withIdentifier: "PopupView")
@@ -41,22 +54,27 @@ class HomeViewController: UIViewController,UIPopoverPresentationControllerDelega
     //            self.view.addSubview(popOverVC.view)
     //        popOverVC.didMove(toParent: self)
     //      }
-    @IBAction func PopUpClicked(_ sender: UIButton) -> Void {
+
+    @IBAction func btn(_ sender: UIButton) {
+//        if vw.isHidden{
+//           vw.isHidden = true
+//        }else{
+//           vw.isHidden = false
+//        }
         
-        if sender.isSelected {
-            vw.isHidden = true
-        }else{
-            vw.isHidden = false
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let popupVC = storyboard.instantiateViewController(withIdentifier: "hello") as! PopupViewController
+        popupVC.modalPresentationStyle = .popover
+        popupVC.preferredContentSize = CGSizeMake(100, 100)
+        let pVC = popupVC.popoverPresentationController
+        pVC?.permittedArrowDirections = .any
+            pVC?.delegate = self
+            pVC?.sourceView = sender
+            pVC?.sourceRect = CGRect(x: 100, y: 100, width: 1, height: 1)
+        present(popupVC, animated: true, completion: nil)
         }
-//        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopupView") as! PopupView
-        
-//        popOverVC.modalPresentationStyle = UIModalPresentationStyle.pageSheet
-//        self.addChild(popOverVC)
-//
-//        popOverVC.view.frame = self.view.frame
-//        self.view.addSubview(popOverVC.view)
-//        popOverVC.didMove(toParent: self)
-        performSegue(withIdentifier: "PopupView", sender: self)
     }
 
+class PopupViewController: UIViewController{
+    
 }

@@ -9,21 +9,24 @@ import UIKit
 
 class DownloadViewController: UIViewController {
 
+    var accDetails = ["My Account","My Wallet","Address","Payment & Refunds","Help"]
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
 
-        // Do any additional setup after loading the view.
+}
+extension DownloadViewController: UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        accDetails.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AccountCell
+        cell.lbl.text = accDetails[indexPath.row]
+        
+        
+        return cell
     }
-    */
-
+    
+    
 }
