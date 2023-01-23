@@ -35,11 +35,6 @@ extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSo
         return cell
     }
 }
-
 class TblvwCell: UITableViewCell {
     @IBOutlet weak var lbl: UILabel!
-}
-
-func fontStyle(){
-    let font = UIFont(name: "snell roundhand", size: 20)
 }

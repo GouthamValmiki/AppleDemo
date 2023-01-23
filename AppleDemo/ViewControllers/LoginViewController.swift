@@ -10,8 +10,6 @@ import UIKit
 class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var validation = Validation()
-//    var DataManager = [Employee]()
-    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var vw: UIView!
@@ -22,7 +20,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         password.delegate = self
         password.isSecureTextEntry = true
         resetform()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -32,7 +29,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == email {
             email.layer.borderWidth = 1
@@ -41,12 +37,10 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
             email.layer.shadowOpacity = 1
             email.layer.shadowRadius = 1
             email.layer.shadowOffset = CGSize(width: 3, height: 3)
-            
         }else{
             email.layer.shadowOpacity = 0
             email.layer.shadowRadius = 0
             email.layer.shadowOffset = CGSize(width: 0, height: 0)
-            
         }
         if textField == password {
             password.layer.borderWidth = 1
@@ -69,7 +63,6 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         email.text = ""
         password.text = ""
     }
-    
     @IBAction func loginAction(_ sender: Any) {
         
         if email.text!.isEmpty && password.text!.isEmpty {
@@ -91,7 +84,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 performSegue(withIdentifier: "HomeViewController", sender: self)
                 print("Login Success")
             }else{
-             print("Error")
+                print("Error")
             }
             
         }

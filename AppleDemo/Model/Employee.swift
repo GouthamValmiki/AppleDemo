@@ -34,11 +34,3 @@ class Employee: Decodable {
 //}
 //
 //
-//struct Model: Decodable {
-//    let name: String
-//    let age: Int
-//}
-//
-//struct Root: Decodable {
-//    let data: [Model]
-//}

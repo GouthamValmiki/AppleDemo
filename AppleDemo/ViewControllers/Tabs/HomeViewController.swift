@@ -17,7 +17,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         vw.isHidden = true
-       
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,11 +29,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         employ.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.lbl.text = employ[indexPath.row]
-//        cell.lbl.textColor = .white
         cell.lbl.font = UIFont(name: "Baskerville", size: 20)
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
@@ -45,19 +42,14 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func randomCGFloat() -> CGFloat {
         return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
-
     func randomColor() -> UIColor {
         let r = randomCGFloat()
         let g = randomCGFloat()
         let b = randomCGFloat()
-
         // If you wanted a random alpha, just create another
         // random number for that too.
-        
         return UIColor(red: r, green: g, blue: b, alpha: 1)
     }
-
-
     //    @objc func next(){
     ////        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     ////        let vc = storyboard.instantiateViewController(withIdentifier: "PopupView")
@@ -68,9 +60,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     ////        present(vc, animated: true, completion:nil)
     //        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopupView")
     //        self.addChild(popOverVC)
-    //
-    //            popOverVC.view.frame = self.view.frame
-    //            self.view.addSubview(popOverVC.view)
+    //        popOverVC.view.frame = self.view.frame
+    //        self.view.addSubview(popOverVC.view)
     //        popOverVC.didMove(toParent: self)
     //      }
 
@@ -80,7 +71,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 //        }else{
 //           vw.isHidden = false
 //        }
-        
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let popupVC = storyboard.instantiateViewController(withIdentifier: "hello") as! PopupViewController
         popupVC.modalPresentationStyle = .popover
@@ -93,7 +83,6 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         present(popupVC, animated: true, completion: nil)
         }
     }
-
 class PopupViewController: UIViewController{
     
 }
