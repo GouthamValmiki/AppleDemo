@@ -7,50 +7,54 @@
 
 import Foundation
 
-
 func getUserData() -> [Employee]  {
+    
     let url = URL(string: "https://jsonplaceholder.typicode.com/todos")!
-
-    let arrOfEmployees: [Employee] = []
-
+    
+    var arrOfEmployees: [Employee] = []
     
     var request = URLRequest(url: url)
     request.httpMethod = "GET"
-
+    
     let session = URLSession.shared
     session.dataTask(with: request) { (data, response, error) in
         
         do {
-            
-            if let data = data,let json = try? JSONSerialization.jsonObject(with: data, options: []) {
-                print(json)
+            if let error = error{
+                print(error)
+                return
             }
-            if error == nil{
-                let user = try JSONDecoder().decode([Employee].self, from: data ?? Data())
-                print(user)
-            }
-                    
-                    //            let decoder = JSONDecoder()
-                    //            let employer = employeData.data(using: .utf8)!
-                    //            let employer1 = try decoder.decode(Employee.self, from: employer)
-                    ////            print(employer1.title)
-                    //            arrOfEmployees[0].title = employer1.title
-                    //            print(arrOfEmployees)
-                    
-                }catch{
-                    print(error)
+            if let data = data{
+                let decodedData = try JSONDecoder().decode([Employee].self, from: data)
+                arrOfEmployees.append(contentsOf: decodedData)
+//                print(arrOfEmployees[1].completed)
+                for employee in arrOfEmployees {
+                    print(employee.userId)
+                    print(employee.title)
+                    print(employee.id)
+                    print(employee.completed)
                 }
                 
-            }.resume()
+                // let employeesDict = ["Department1": [Employee(userId: 1, id: 123, title: "i-exceed", completed: true)],
+                //                                     "Department2": [Employee(userId: 9, id: 13, title: "exceed", completed: false)],]
+                // for (_, value) in employeesDict {
+                // arrOfEmployees.append(contentsOf: value)
+                // print(arrOfEmployees)
+                //
+                //}
+            }
             
-            return arrOfEmployees
+        }catch{
+            print(error)
         }
         
-//        let employeData = """
-//{
-//"userId": 1,
-//"id": 2,
-//"title": "Something that never change",
-//"completed": false
-//}
-//"""
+    }.resume()
+    
+    return arrOfEmployees
+    
+}
+    
+    
+
+
+

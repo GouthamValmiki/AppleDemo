@@ -23,7 +23,7 @@ extension DownloadViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AccountCell
         cell.lbl.text = accDetails[indexPath.row]
-        
+        cell.lbl.font = UIFont(name: "Times New Roman", size: 20)
         
         return cell
     }

@@ -87,7 +87,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         }
         if (validateEmailId && isValidatePass) {
             let employeeArray = getUserData()
-            if  !employeeArray.isEmpty {
+            if  employeeArray.isEmpty {
                 performSegue(withIdentifier: "HomeViewController", sender: self)
                 print("Login Success")
             }else{

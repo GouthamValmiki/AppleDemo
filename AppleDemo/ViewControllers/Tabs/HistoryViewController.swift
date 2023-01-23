@@ -10,7 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController {
 
     var image = ["Book","food","Snacks"]
-    var arr = ["Books","food","Snacks","Cool Drinks","Milk Shakes","Fruits","Popcorn"]
+    var arr = ["Books","Food","Snacks","Cool Drinks","Milk Shakes","Fruits","Popcorn"]
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +31,7 @@ extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TblvwCell
         cell.lbl.text = arr[indexPath.row]
+        cell.lbl.font = UIFont(name: "Times New Roman", size: 20)
         return cell
     }
 }
@@ -39,4 +40,6 @@ class TblvwCell: UITableViewCell {
     @IBOutlet weak var lbl: UILabel!
 }
 
- 
+func fontStyle(){
+    let font = UIFont(name: "snell roundhand", size: 20)
+}

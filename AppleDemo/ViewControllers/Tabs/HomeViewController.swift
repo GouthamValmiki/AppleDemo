@@ -34,10 +34,29 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         cell.lbl.text = employ[indexPath.row]
+//        cell.lbl.textColor = .white
+        cell.lbl.font = UIFont(name: "Baskerville", size: 20)
         cell.img.image = UIImage(named: employ[indexPath.row])
-        cell.backgroundColor = .clear
+        cell.img.layer.cornerRadius = 40
+        cell.img.layer.borderWidth = 2
+        cell.img.backgroundColor = randomColor()
         return cell
     }
+    func randomCGFloat() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+
+    func randomColor() -> UIColor {
+        let r = randomCGFloat()
+        let g = randomCGFloat()
+        let b = randomCGFloat()
+
+        // If you wanted a random alpha, just create another
+        // random number for that too.
+        
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+
 
     //    @objc func next(){
     ////        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
