@@ -75,23 +75,25 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         
         if !validateEmailId {
             showAlert(title: "Alert", message: "Please enter valid email address")
+            return
         }else if !isValidatePass {
             showAlert(title: "Alert", message: "Incorrect Password")
+            return
         }
         if (validateEmailId && isValidatePass) {
-            let employeeArray = getUserData { status in
-                self.performSegue(withIdentifier: "HomeViewController", sender: self)
-                print("Login Success")
-                print("")
+            NetworkManager().getUserData {[weak self] status in
+                if status {
+                    DispatchQueue.main.async {
+                        self?.performSegue(withIdentifier: "HomeViewController", sender: self)
+                        print("Login Success")
+                    }
+                } else {
+                    print("Login Failed")
+                }
             }
-////            if  employeeArray.isEmpty {
-////                performSegue(withIdentifier: "HomeViewController", sender: self)
-////                print("Login Success")
-            }else{
-                print("Error")
-            }
+            
         }
-    
+    }
     // MARK: Utility Methods
     fileprivate func showAlert(title: String, message: String) {
         
