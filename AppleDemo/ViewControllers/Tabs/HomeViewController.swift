@@ -11,12 +11,9 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     var employ = ["Breakfast","Lunch","Dinner","Snacks","Diet","Drinks"]
     
-    @IBOutlet weak var vw: UIView!
-    
     @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        vw.isHidden = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -37,6 +34,11 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
         cell.img.backgroundColor = randomColor()
+        cell.vw.layer.shadowColor = UIColor.black.cgColor
+        cell.vw.layer.cornerRadius = 5
+        cell.vw.layer.shadowOpacity = 1
+        cell.vw.layer.shadowRadius = 1
+        cell.vw.layer.shadowOffset = CGSize(width: 0, height: 1)
         return cell
     }
     func randomCGFloat() -> CGFloat {
