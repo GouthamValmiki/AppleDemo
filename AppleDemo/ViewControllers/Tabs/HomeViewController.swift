@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
     
-    var employ = ["Breakfast","Lunch","Dinner","Snacks","Diet","Drinks"]
+    var employ = ["Pizza","Burger","Chilli Chicken","Burger","Egg","Drinks"]
     
     @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
-        cell.img.backgroundColor = randomColor()
+//        cell.img.backgroundColor = randomColor()
         cell.vw.layer.shadowColor = UIColor.black.cgColor
         cell.vw.layer.cornerRadius = 5
         cell.vw.layer.shadowOpacity = 1

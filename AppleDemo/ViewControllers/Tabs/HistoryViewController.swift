@@ -11,43 +11,52 @@ class HistoryViewController: UIViewController {
 
     var timer : Timer?
     var currentcellIndex = 0
-    var image = ["Book","food","Snacks"]
-    var arr = ["Books","Food","Snacks","Cool Drinks","Milk Shakes","Fruits","Popcorn"]
+    var image = ["Pizza","Burger","Egg","Breakfast","Chilli Chicken"]
+    var price = ["Rs 70/-","Rs 100/-","Rs 50/-","Rs 150/-","Rs 200/-"]
+    var arr = ["Spicy","Yummy","Good Taste","Excellent","Awesome"]
   
     @IBOutlet weak var collectVw: UICollectionView!
+    @IBOutlet weak var collectVw2: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
-}
-extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        image.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
-        cell.img.image = UIImage(named: image[indexPath.row])
-        return cell
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        arr.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TblvwCell
-        cell.lbl.text = arr[indexPath.row]
-        cell.lbl.font = UIFont(name: "Times New Roman", size: 20)
-        return cell
-    }
     @objc func autoScroll() {
         if currentcellIndex < image.count-1 {
-            currentcellIndex = currentcellIndex + 1
+            currentcellIndex = currentcellIndex + 2
         }else{
             currentcellIndex = 0
         }
         collectVw.scrollToItem(at: IndexPath(item: currentcellIndex, section: 0), at: .right, animated: true)
     }
-        
+
 }
-class TblvwCell: UITableViewCell {
-    @IBOutlet weak var lbl: UILabel!
+extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        image.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == collectVw {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+            cell.foodLbl.text = image[indexPath.row]
+            cell.priceLbl.text = price[indexPath.row]
+            cell.img.image = UIImage(named: image[indexPath.row])
+            return cell
+        }else{
+            if collectionView == collectVw2 {
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CollectionViewCell2
+                cell.foodLbl.text = image[indexPath.row]
+                cell.lbl.text = arr[indexPath.row]
+                cell.vw2.layer.shadowColor = UIColor.black.cgColor
+                cell.vw2.layer.cornerRadius = 5
+                cell.vw2.layer.shadowOpacity = 1
+                cell.vw2.layer.shadowRadius = 1
+                cell.vw2.layer.shadowOffset = CGSize(width: 0, height: 1)
+                cell.img.image = UIImage(named: image[indexPath.row])
+                cell.img.layer.cornerRadius = 5
+                return cell
+            }
+            return UICollectionViewCell()
+        }
+    }
 }
