@@ -8,14 +8,13 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
+    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var vw: UIView!
     @IBOutlet weak var lbl: UILabel!
-    
+    @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var digitLbl: UILabel!
-    
-    @IBOutlet weak var btn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +22,9 @@ class TableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    @IBAction func handleStepper(_ sender: UIStepper) {
+        digitLbl.text = String(Int(sender.value))
+        
+    }
 }
+

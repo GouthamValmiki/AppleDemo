@@ -8,12 +8,13 @@
 import UIKit
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
-    
+    var number = 0
     var employ = ["Pizza","Burger","Chilli Chicken","Burger","Egg","Drinks"]
-    var number = 1
+    @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+      
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,34 +35,25 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
-        //        cell.img.backgroundColor = randomColor()
+        //cell.img.backgroundColor = randomColor()
         cell.vw.layer.shadowColor = UIColor.black.cgColor
         cell.vw.layer.cornerRadius = 5
         cell.vw.layer.shadowOpacity = 1
         cell.vw.layer.shadowRadius = 1
         cell.vw.layer.shadowOffset = CGSize(width: 0, height: 1)
-        cell.btn.tag = indexPath.row
-        cell.btn.addTarget(self, action: #selector(cellButtonTapped(_:)), for: .touchUpInside)
-        cell.digitLbl.text = "\(number)"
         return cell
     }
-    @objc func cellButtonTapped(_ sender: UIButton) {
-        if (number != 0) {
-            number += 1
-        }
+    func randomCGFloat() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
     }
-        
-        func randomCGFloat() -> CGFloat {
-            return CGFloat(arc4random()) / CGFloat(UInt32.max)
-        }
-        func randomColor() -> UIColor {
-            let r = randomCGFloat()
-            let g = randomCGFloat()
-            let b = randomCGFloat()
-            // If you wanted a random alpha, just create another
-            // random number for that too.
-            return UIColor(red: r, green: g, blue: b, alpha: 1)
-        }
+    func randomColor() -> UIColor {
+        let r = randomCGFloat()
+        let g = randomCGFloat()
+        let b = randomCGFloat()
+        // If you wanted a random alpha, just create another
+        // random number for that too.
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
         //    @objc func next(){
         ////        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         ////        let vc = storyboard.instantiateViewController(withIdentifier: "PopupView")
