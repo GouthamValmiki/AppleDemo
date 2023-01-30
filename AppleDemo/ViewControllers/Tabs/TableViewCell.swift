@@ -32,7 +32,6 @@ class TableViewCell: UITableViewCell {
         let twoInt = Int(two!)
         let total = oneInt! * twoInt!
         totalLbl?.text = "\(total)"
-
     }
 }
 
