@@ -8,7 +8,8 @@
 import UIKit
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
-    var price = ["One item: 150","One item: 100","One item: 200","One item: 120","One item: 30","One item: 25"]
+    var total = 0.0
+    var price = ["150","100","200","120","30","25"]
     var employ = ["Pizza","Burger","Chilli Chicken","Burger","Egg","Drinks"]
     var details = ["A slice a day keeps the sad away",
                    "Life is better with a burger",
@@ -16,7 +17,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                    "Life is better with a burger",
                    "Daily one is better for your health",
                    "No working during drinking hours"]
-    @IBOutlet weak var totalLbl: UILabel!
+    @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +41,15 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
-        cell.priceLbl.text = price[indexPath.row]
-        //cell.img.backgroundColor = randomColor()
+        cell.priceLbl?.text = price[indexPath.row]
         cell.vw.layer.shadowColor = UIColor.black.cgColor
         cell.vw.layer.cornerRadius = 5
         cell.vw.layer.shadowOpacity = 1
         cell.vw.layer.shadowRadius = 1
         cell.vw.layer.shadowOffset = CGSize(width: 0, height: 1)
-//        cell.stepper.tag = indexPath.row
         cell.detailLbl.text = details[indexPath.row]
         return cell
     }
-    
         @IBAction func btn(_ sender: UIButton) {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let popupVC = storyboard.instantiateViewController(withIdentifier: "hello") as! PopupViewController

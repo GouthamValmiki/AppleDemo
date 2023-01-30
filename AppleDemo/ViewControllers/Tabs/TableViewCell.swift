@@ -8,7 +8,7 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var vw: UIView!
     @IBOutlet weak var foodNameLbl: UILabel!
@@ -25,12 +25,13 @@ class TableViewCell: UITableViewCell {
     }
     @IBAction func handleStepper(_ sender: UIStepper) {
         numberLbl.text = String(Int(sender.value))
+        
         let one = numberLbl.text
         let oneInt = Int(one!)
         let two = priceLbl.text
         let twoInt = Int(two!)
         let total = oneInt! * twoInt!
-        totalLbl.text = "\(total)"
+        totalLbl?.text = "\(total)"
 
     }
 }
