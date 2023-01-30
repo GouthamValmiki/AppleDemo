@@ -8,13 +8,18 @@
 import UIKit
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
-    var number = 0
+    var price = ["One item: 150","One item: 100","One item: 200","One item: 120","One item: 30","One item: 25"]
     var employ = ["Pizza","Burger","Chilli Chicken","Burger","Egg","Drinks"]
+    var details = ["A slice a day keeps the sad away",
+                   "Life is better with a burger",
+                   "Live life with a little spice",
+                   "Life is better with a burger",
+                   "Daily one is better for your health",
+                   "No working during drinking hours"]
     @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -24,51 +29,29 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationItem.rightBarButtonItem?.isHidden = true
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         employ.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
-        cell.lbl.text = employ[indexPath.row]
-        cell.lbl.font = UIFont(name: "Baskerville", size: 20)
+        cell.foodNameLbl.text = employ[indexPath.row]
+        cell.foodNameLbl.font = UIFont(name: "Baskerville", size: 20)
+        cell.foodNameLbl.font = UIFont.boldSystemFont(ofSize: 20)
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
+        cell.priceLbl.text = price[indexPath.row]
         //cell.img.backgroundColor = randomColor()
         cell.vw.layer.shadowColor = UIColor.black.cgColor
         cell.vw.layer.cornerRadius = 5
         cell.vw.layer.shadowOpacity = 1
         cell.vw.layer.shadowRadius = 1
         cell.vw.layer.shadowOffset = CGSize(width: 0, height: 1)
+//        cell.stepper.tag = indexPath.row
+        cell.detailLbl.text = details[indexPath.row]
         return cell
     }
-    func randomCGFloat() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
-    func randomColor() -> UIColor {
-        let r = randomCGFloat()
-        let g = randomCGFloat()
-        let b = randomCGFloat()
-        // If you wanted a random alpha, just create another
-        // random number for that too.
-        return UIColor(red: r, green: g, blue: b, alpha: 1)
-    }
-        //    @objc func next(){
-        ////        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        ////        let vc = storyboard.instantiateViewController(withIdentifier: "PopupView")
-        ////        vc.modalPresentationStyle = UIModalPresentationStyle.popover
-        ////        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-        ////        popover.backgroundColor = .blue
-        ////        popover.delegate = self
-        ////        present(vc, animated: true, completion:nil)
-        //        let popOverVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PopupView")
-        //        self.addChild(popOverVC)
-        //        popOverVC.view.frame = self.view.frame
-        //        self.view.addSubview(popOverVC.view)
-        //        popOverVC.didMove(toParent: self)
-        //      }
-        
+    
         @IBAction func btn(_ sender: UIButton) {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let popupVC = storyboard.instantiateViewController(withIdentifier: "hello") as! PopupViewController

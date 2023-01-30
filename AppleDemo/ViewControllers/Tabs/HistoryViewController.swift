@@ -14,36 +14,34 @@ class HistoryViewController: UIViewController {
     var image = ["Pizza","Burger","Egg","Breakfast","Chilli Chicken"]
     var price = ["Rs 70/-","Rs 100/-","Rs 50/-","Rs 150/-","Rs 200/-"]
     var arr = ["Spicy","Yummy","Good Taste","Excellent","Awesome"]
-  
-    @IBOutlet weak var collectVw: UICollectionView!
-    @IBOutlet weak var collectVw2: UICollectionView!
+    @IBOutlet weak var pagerCollectionView: UICollectionView!
+    @IBOutlet weak var foodCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
     @objc func autoScroll() {
         if currentcellIndex < image.count-1 {
-            currentcellIndex = currentcellIndex + 2
+            currentcellIndex = currentcellIndex + 1
         }else{
             currentcellIndex = 0
         }
-        collectVw.scrollToItem(at: IndexPath(item: currentcellIndex, section: 0), at: .right, animated: true)
+        pagerCollectionView.scrollToItem(at: IndexPath(item: currentcellIndex, section: 0), at: .right, animated: true)
     }
-
 }
 extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         image.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectVw {
+        if collectionView == pagerCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
             cell.foodLbl.text = image[indexPath.row]
             cell.priceLbl.text = price[indexPath.row]
             cell.img.image = UIImage(named: image[indexPath.row])
             return cell
         }else{
-            if collectionView == collectVw2 {
+            if collectionView == foodCollectionView {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! CollectionViewCell2
                 cell.foodLbl.text = image[indexPath.row]
                 cell.lbl.text = arr[indexPath.row]

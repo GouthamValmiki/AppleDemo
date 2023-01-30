@@ -14,17 +14,13 @@ class Employee: Decodable {
     var title : String
     var completed : Bool
 
-
     init(userId: Int, id: Int, title: String, completed: Bool) {
         self.userId = userId
         self.id = id
         self.title = title
         self.completed = completed
-
     }
-
 }
-
 //class Department: Decodable{
 //    var employee: [Employee]
 //    

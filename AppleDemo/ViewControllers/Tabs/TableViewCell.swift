@@ -8,14 +8,15 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    
-    
+
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var vw: UIView!
-    @IBOutlet weak var lbl: UILabel!
+    @IBOutlet weak var foodNameLbl: UILabel!
     @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var digitLbl: UILabel!
-    
+    @IBOutlet weak var numberLbl: UILabel!
+    @IBOutlet weak var detailLbl: UILabel!
+    @IBOutlet weak var priceLbl: UILabel!
+    @IBOutlet weak var totalLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -23,8 +24,14 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     @IBAction func handleStepper(_ sender: UIStepper) {
-        digitLbl.text = String(Int(sender.value))
-        
+        numberLbl.text = String(Int(sender.value))
+        let one = numberLbl.text
+        let oneInt = Int(one!)
+        let two = priceLbl.text
+        let twoInt = Int(two!)
+        let total = oneInt! * twoInt!
+        totalLbl.text = "\(total)"
+
     }
 }
 

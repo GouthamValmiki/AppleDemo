@@ -8,7 +8,6 @@
 import UIKit
 
 class PasswordViewController: UIViewController {
-    
     @IBOutlet var vw: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()

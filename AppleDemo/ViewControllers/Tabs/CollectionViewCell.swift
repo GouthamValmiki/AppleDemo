@@ -14,7 +14,6 @@ class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var vw: UIView!
     @IBOutlet weak var btn: UIButton!
 }
-
 class CollectionViewCell2: UICollectionViewCell {
     @IBOutlet weak var foodLbl: UILabel!
     @IBOutlet weak var img: UIImageView!

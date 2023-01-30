@@ -18,7 +18,6 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     @IBAction func create(_ sender: UIButton) {
         
         guard let name = namefld.text, let email = emailfld.text, let pass = passfld.text, let phone = phone.text else {
