@@ -16,4 +16,3 @@ class PasswordViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
-

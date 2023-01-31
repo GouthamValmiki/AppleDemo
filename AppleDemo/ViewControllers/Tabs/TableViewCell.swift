@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TableViewCellDelegate: AnyObject {
+  func changeLbl(in cell: TableViewCell)
+}
+
 class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!
@@ -17,6 +21,10 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var detailLbl: UILabel!
     @IBOutlet weak var priceLbl: UILabel!
     @IBOutlet weak var totalLbl: UILabel!
+    weak var delegate: TableViewCellDelegate?
+
+//    @IBOutlet weak var increaseCountBtn: UIButton!
+//    @IBOutlet weak var decreaseCountBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -31,7 +39,10 @@ class TableViewCell: UITableViewCell {
         let two = priceLbl.text
         let twoInt = Int(two!)
         let total = oneInt! * twoInt!
-        totalLbl?.text = "\(total)"
+        totalLbl.text = "\(total)"
+        
+        delegate?.changeLbl(in: self)
     }
+  
 }
 

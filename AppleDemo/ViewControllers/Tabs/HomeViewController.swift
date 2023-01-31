@@ -7,9 +7,10 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate {
-    var total = 0.0
+class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate, TableViewCellDelegate {
+  
     var price = ["150","100","200","120","30","25"]
+    var totalPriceArray = [0, 0, 0, 0, 0, 0]
     var employ = ["Pizza","Burger","Chilli Chicken","Burger","Egg","Drinks"]
     var details = ["A slice a day keeps the sad away",
                    "Life is better with a burger",
@@ -17,6 +18,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                    "Life is better with a burger",
                    "Daily one is better for your health",
                    "No working during drinking hours"]
+    var totalPrice = 0.0
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var tblvw: UITableView!
     override func viewDidLoad() {
@@ -29,6 +31,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationItem.rightBarButtonItem?.isHidden = true
+        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         employ.count
@@ -41,14 +44,23 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
-        cell.priceLbl?.text = price[indexPath.row]
+        cell.priceLbl.text = price[indexPath.row]
         cell.vw.layer.shadowColor = UIColor.black.cgColor
         cell.vw.layer.cornerRadius = 5
         cell.vw.layer.shadowOpacity = 1
         cell.vw.layer.shadowRadius = 1
         cell.vw.layer.shadowOffset = CGSize(width: 0, height: 1)
         cell.detailLbl.text = details[indexPath.row]
+        cell.delegate = self
+        
+//        cell.totalLbl.text = "\(totalPriceArray)"
+//        totalPrice += Double((cell.numberLbl.text ?? "" ) ?? 0, +(cell.totalLbl.text ?? "" )) ?? 0
+//        self.totalAmount.text = "\(totalPrice)
         return cell
+    }
+    func changeLbl(in cell: TableViewCell) {
+        let total = cell.totalLbl.text ?? ""
+        totalAmount.text = "₹ \(total)"
     }
         @IBAction func btn(_ sender: UIButton) {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -66,3 +78,4 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     class PopupViewController: UIViewController{
         
     }
+    
