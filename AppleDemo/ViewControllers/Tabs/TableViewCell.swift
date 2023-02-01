@@ -10,7 +10,6 @@ import UIKit
 protocol TableViewCellDelegate: AnyObject {
   func changeLbl(in cell: TableViewCell)
 }
-
 class TableViewCell: UITableViewCell {
     
     @IBOutlet weak var img: UIImageView!

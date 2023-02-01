@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class HistoryViewController: UIViewController {
+class HistoryViewController: UIViewController{
 
     var timer : Timer?
     var currentcellIndex = 0
@@ -18,6 +19,9 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var foodCollectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+       
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
     @objc func autoScroll() {
@@ -58,5 +62,6 @@ extension HistoryViewController: UICollectionViewDelegate,UICollectionViewDataSo
         }
     }
 }
+
 
 

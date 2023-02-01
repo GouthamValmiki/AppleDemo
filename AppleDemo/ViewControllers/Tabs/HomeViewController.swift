@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate, TableViewCellDelegate {
+  
+    
   
     var price = ["150","100","200","120","30","25"]
     var totalPriceArray = [0, 0, 0, 0, 0, 0]
@@ -21,17 +24,22 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var totalPrice = 0.0
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var tblvw: UITableView!
+    @IBOutlet weak var latitLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.navigationItem.hidesBackButton = true
+        
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.navigationItem.rightBarButtonItem?.isHidden = true
-        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         employ.count
@@ -53,12 +61,14 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.detailLbl.text = details[indexPath.row]
         cell.delegate = self
         
+        
 //        cell.totalLbl.text = "\(totalPriceArray)"
 //        totalPrice += Double((cell.numberLbl.text ?? "" ) ?? 0, +(cell.totalLbl.text ?? "" )) ?? 0
 //        self.totalAmount.text = "\(totalPrice)
         return cell
     }
     func changeLbl(in cell: TableViewCell) {
+    
         let total = cell.totalLbl.text ?? ""
         totalAmount.text = "₹ \(total)"
     }
@@ -75,7 +85,31 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             present(popupVC, animated: true, completion: nil)
         }
     }
+extension HomeViewController: CLLocationManagerDelegate {
+    
+    func locationManager(
+        _ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]
+    ) {
+        if let location = locations.last {
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            print("latitude = \(latitude)")
+            print("logitude = \(longitude)")
+            
+            latitLbl.text = "Latitude :\(location.coordinate.latitude)"
+        }
+    }
+    func locationManager(
+        _ manager: CLLocationManager,
+        didFailWithError error: Error
+        
+    ) {
+        
+        print("error = \(error)")
+    }
     class PopupViewController: UIViewController{
         
     }
     
+}
