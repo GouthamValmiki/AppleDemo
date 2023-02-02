@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Details</key>
+	<array>
+		<string>A slice a day keeps the sad away</string>
+		<string>Life is better with a burger</string>
+		<string>Live life with a little spice</string>
+		<string>Life is better with a burger</string>
+		<string>Daily one is better for your health</string>
+		<string>No working during drinking hours</string>
+	</array>
+	<key>Employ</key>
+	<array>
+		<string>Pizza</string>
+		<string>Burger</string>
+		<string>Chilli Chicken</string>
+		<string>Burger</string>
+		<string>Egg</string>
+		<string>Drinks</string>
+	</array>
+	<key>Price</key>
+	<array>
+		<integer>150</integer>
+		<integer>100</integer>
+		<integer>200</integer>
+		<integer>120</integer>
+		<integer>30</integer>
+		<integer>25</integer>
+	</array>
+</dict>
+</plist>

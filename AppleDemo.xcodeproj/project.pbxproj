@@ -22,6 +22,7 @@
 		358807B829791F4D008589D5 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358807B729791F4D008589D5 /* CollectionViewCell.swift */; };
 		35B6FA992965950000121C7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B6FA982965950000121C7A /* NetworkManager.swift */; };
 		35D07DC82967F734000A68B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D07DC72967F734000A68B4 /* HomeViewController.swift */; };
+		35D85F88298B9C360095355A /* MyList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 35D85F87298B9C360095355A /* MyList.plist */; };
 		35FA1081296BEE8900DC8416 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA1080296BEE8900DC8416 /* HistoryViewController.swift */; };
 		35FA1083296BEE9D00DC8416 /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FA1082296BEE9D00DC8416 /* DownloadViewController.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		358807B729791F4D008589D5 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		35B6FA982965950000121C7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		35D07DC72967F734000A68B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		35D85F87298B9C360095355A /* MyList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MyList.plist; sourceTree = "<group>"; };
 		35FA1080296BEE8900DC8416 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		35FA1082296BEE9D00DC8416 /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				35D07DC72967F734000A68B4 /* HomeViewController.swift */,
+				35D85F87298B9C360095355A /* MyList.plist */,
 				358807B329791266008589D5 /* TableViewCell.swift */,
 				35FA1080296BEE8900DC8416 /* HistoryViewController.swift */,
 				358807B729791F4D008589D5 /* CollectionViewCell.swift */,
@@ -190,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D85F88298B9C360095355A /* MyList.plist in Resources */,
 				351099622952D73D00D6A38F /* LaunchScreen.storyboard in Resources */,
 				3510995F2952D73D00D6A38F /* Assets.xcassets in Resources */,
 				3510995D2952D73A00D6A38F /* Main.storyboard in Resources */,

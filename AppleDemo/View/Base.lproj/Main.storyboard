@@ -489,9 +489,9 @@
                                 </constraints>
                                 <imageReference key="image" image="location.fill" catalog="system" renderingMode="original"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ech-ix-S9V">
-                                <rect key="frame" x="50" y="727" width="37.333333333333343" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ech-ix-S9V">
+                                <rect key="frame" x="45" y="720" width="260" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -501,16 +501,17 @@
                         <constraints>
                             <constraint firstItem="1rq-2P-VLM" firstAttribute="leading" secondItem="2cB-O3-SHx" secondAttribute="leading" constant="8" id="2CM-xf-Vj1"/>
                             <constraint firstItem="0QB-HX-blB" firstAttribute="centerX" secondItem="2cB-O3-SHx" secondAttribute="centerX" id="2lf-m5-bjp"/>
+                            <constraint firstItem="Ech-ix-S9V" firstAttribute="top" secondItem="X5n-0h-qFj" secondAttribute="bottom" constant="5" id="6Y1-it-S0S"/>
                             <constraint firstItem="lxc-1P-eUt" firstAttribute="top" secondItem="xx4-Ke-toF" secondAttribute="bottom" constant="14" id="7ri-cn-2DQ"/>
                             <constraint firstItem="xx4-Ke-toF" firstAttribute="top" secondItem="yE7-n7-ShT" secondAttribute="top" id="E9r-Fw-l1B"/>
-                            <constraint firstItem="Ech-ix-S9V" firstAttribute="leading" secondItem="1rq-2P-VLM" secondAttribute="trailing" constant="15" id="EY1-QA-wmT"/>
                             <constraint firstItem="X5n-0h-qFj" firstAttribute="top" secondItem="xx4-Ke-toF" secondAttribute="bottom" constant="8" id="GOz-43-dvV"/>
+                            <constraint firstItem="yE7-n7-ShT" firstAttribute="trailing" secondItem="Ech-ix-S9V" secondAttribute="trailing" constant="88" id="JJ1-Kf-ymI"/>
                             <constraint firstItem="yE7-n7-ShT" firstAttribute="trailing" secondItem="xx4-Ke-toF" secondAttribute="trailing" id="Ncl-DB-WM9"/>
                             <constraint firstItem="1rq-2P-VLM" firstAttribute="top" secondItem="X5n-0h-qFj" secondAttribute="bottom" constant="10" id="Xkj-FP-uoW"/>
                             <constraint firstItem="X5n-0h-qFj" firstAttribute="leading" secondItem="yE7-n7-ShT" secondAttribute="leading" constant="8" id="Ygc-s5-TEG"/>
                             <constraint firstItem="0QB-HX-blB" firstAttribute="top" secondItem="2cB-O3-SHx" secondAttribute="top" constant="64" id="asq-kO-od4"/>
-                            <constraint firstItem="Ech-ix-S9V" firstAttribute="top" secondItem="X5n-0h-qFj" secondAttribute="bottom" constant="12" id="jnp-nF-GdN"/>
                             <constraint firstItem="yE7-n7-ShT" firstAttribute="trailing" secondItem="lxc-1P-eUt" secondAttribute="trailing" constant="16" id="rtE-q2-QwB"/>
+                            <constraint firstItem="Ech-ix-S9V" firstAttribute="leading" secondItem="1rq-2P-VLM" secondAttribute="trailing" constant="10" id="u9F-Sx-xYh"/>
                             <constraint firstItem="xx4-Ke-toF" firstAttribute="leading" secondItem="yE7-n7-ShT" secondAttribute="leading" id="yuv-8K-1aC"/>
                         </constraints>
                     </view>

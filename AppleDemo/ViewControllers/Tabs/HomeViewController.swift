@@ -10,23 +10,22 @@ import CoreLocation
 
 class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIPopoverPresentationControllerDelegate, TableViewCellDelegate {
   
-    
-  
-    var price = ["150","100","200","120","30","25"]
-    var totalPriceArray = [0, 0, 0, 0, 0, 0]
-    var employ = ["Pizza","Burger","Chilli Chicken","Burger","Egg","Drinks"]
-    var details = ["A slice a day keeps the sad away",
-                   "Life is better with a burger",
-                   "Live life with a little spice",
-                   "Life is better with a burger",
-                   "Daily one is better for your health",
-                   "No working during drinking hours"]
-    var totalPrice = 0.0
+    var price = [Int]()
+    var employ = [String]()
+    var details = [String]()
+//    var totalPrice = 0.0
     @IBOutlet weak var totalAmount: UILabel!
     @IBOutlet weak var tblvw: UITableView!
     @IBOutlet weak var latitLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let path = Bundle.main.path(forResource: "MyList", ofType: "plist")
+        let dict = NSDictionary(contentsOfFile: path!)
+        
+        employ = dict?.object(forKey: "Employ") as! [String]
+        price = dict?.object(forKey: "Price") as! [Int]
+        details = dict?.object(forKey: "Details") as! [String]
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +35,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        getReverSerGeoLocation(location: CLLocation(latitude: 12.978898, longitude: 77.57767))
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -52,7 +53,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         cell.img.image = UIImage(named: employ[indexPath.row])
         cell.img.layer.cornerRadius = 40
         cell.img.layer.borderWidth = 2
-        cell.priceLbl.text = price[indexPath.row]
+        cell.priceLbl.text = String(Int(price[indexPath.row]))
         cell.vw.layer.shadowColor = UIColor.black.cgColor
         cell.vw.layer.cornerRadius = 5
         cell.vw.layer.shadowOpacity = 1
@@ -92,24 +93,39 @@ extension HomeViewController: CLLocationManagerDelegate {
         didUpdateLocations locations: [CLLocation]
     ) {
         if let location = locations.last {
+            manager.stopUpdatingLocation()
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
             print("latitude = \(latitude)")
             print("logitude = \(longitude)")
-            
-            latitLbl.text = "Latitude :\(location.coordinate.latitude)"
         }
     }
-    func locationManager(
-        _ manager: CLLocationManager,
-        didFailWithError error: Error
+    func getReverSerGeoLocation(location : CLLocation) {
+        print("getting Address from Location cordinate")
         
-    ) {
-        
+        CLGeocoder().reverseGeocodeLocation(location) {
+            placemarks , error in
+            if error == nil && placemarks!.count > 0 {
+                guard let placemark = placemarks?.last else {
+                    return
+                }
+                print(placemark.thoroughfare!)
+                print(placemark.subThoroughfare!)
+                print("postalCode :-",placemark.postalCode!)
+                print("City :-",placemark.locality!)
+                print("subLocality :-",placemark.subLocality!)
+                print("subAdministrativeArea :-",placemark.subAdministrativeArea!)
+                print("Country :-",placemark.country!)
+                self.latitLbl.text = "\(placemark.thoroughfare!), \(placemark.subLocality!) \r\n \(placemark.locality!) - \(placemark.postalCode!), \(placemark.country!)"
+            }
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    
         print("error = \(error)")
     }
+    
     class PopupViewController: UIViewController{
         
     }
-    
 }

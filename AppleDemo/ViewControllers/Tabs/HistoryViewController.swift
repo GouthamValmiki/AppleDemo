@@ -20,8 +20,6 @@ class HistoryViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-       
         timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
     }
     @objc func autoScroll() {
