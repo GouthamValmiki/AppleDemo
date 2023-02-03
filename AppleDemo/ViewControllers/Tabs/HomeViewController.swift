@@ -129,3 +129,10 @@ extension HomeViewController: CLLocationManagerDelegate {
         
     }
 }
+
+//struct Products {
+//    var name: String
+//    var cost : Int
+//    var details: String
+//
+//}
